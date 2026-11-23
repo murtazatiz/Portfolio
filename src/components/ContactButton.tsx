@@ -16,12 +16,12 @@ const BASE_CLASSES =
   'inline-block rounded-full text-white font-medium uppercase tracking-widest text-center transition-transform duration-200 hover:scale-[1.03] active:scale-100 px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base';
 
 /**
- * Gradient pill CTA used in the hero and about sections. Links to email by
- * default.
+ * Gradient pill CTA used in the hero and about sections. Scrolls to the
+ * contact section by default.
  */
 export default function ContactButton({
   label = 'Contact Me',
-  href = 'mailto:murtazatiz@gmail.com',
+  href = '#contact',
   className = '',
 }: ContactButtonProps) {
   return (

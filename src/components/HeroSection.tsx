@@ -1,16 +1,14 @@
 import ContactButton from './ContactButton';
 import FadeIn from './FadeIn';
 import Magnet from './Magnet';
+import portrait from '../assets/portrait.webp';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Work', href: '#work' },
-  { label: 'Contact', href: 'mailto:murtazatiz@gmail.com' },
+  { label: 'Contact', href: '#contact' },
 ];
-
-const PORTRAIT_URL =
-  'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png';
 
 export default function HeroSection() {
   return (
@@ -79,7 +77,7 @@ export default function HeroSection() {
             inactiveTransition="transform 0.6s ease-in-out"
           >
             <img
-              src={PORTRAIT_URL}
+              src={portrait}
               alt="Murtaza portrait"
               className="select-none h-auto w-[260px] sm:w-auto sm:h-[62vh] md:h-[66vh] lg:h-[70vh] max-w-[92vw] object-contain"
               draggable={false}
