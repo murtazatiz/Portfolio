@@ -2,6 +2,9 @@ import { useState } from 'react';
 import FadeIn from './FadeIn';
 
 const EMAIL = 'murtazatiz@gmail.com';
+const LINKEDIN = 'https://www.linkedin.com/in/murtaza-tinwala-ai/';
+const PILL =
+  'min-w-[10rem] rounded-full border-2 border-[#D7E2EA] px-6 py-2.5 text-center text-xs sm:text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition-colors duration-200 hover:bg-[#D7E2EA]/10';
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -49,13 +52,14 @@ export default function ContactSection() {
           >
             {EMAIL}
           </a>
-          <button
-            type="button"
-            onClick={copyEmail}
-            className="min-w-[10rem] rounded-full border-2 border-[#D7E2EA] px-6 py-2.5 text-xs sm:text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition-colors duration-200 hover:bg-[#D7E2EA]/10"
-          >
-            {copied ? 'Copied!' : 'Copy email'}
-          </button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button type="button" onClick={copyEmail} className={PILL}>
+              {copied ? 'Copied!' : 'Copy email'}
+            </button>
+            <a href={LINKEDIN} target="_blank" rel="noreferrer noopener" className={PILL}>
+              LinkedIn ↗
+            </a>
+          </div>
         </FadeIn>
       </div>
 

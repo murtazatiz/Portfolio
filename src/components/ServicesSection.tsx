@@ -4,6 +4,7 @@ type Service = {
   number: string;
   name: string;
   description: string;
+  proof: string;
 };
 
 const SERVICES: Service[] = [
@@ -12,30 +13,35 @@ const SERVICES: Service[] = [
     name: 'Product Strategy & Roadmaps',
     description:
       'Translating ambiguous business goals into prioritised backlogs, clear roadmaps, and shipped products with measurable outcomes.',
+    proof: 'Lifted CCIR adoption and usage 30% in 3 months.',
   },
   {
     number: '02',
     name: 'Agile & SAFe Delivery',
     description:
       'Driving sprint planning, backlog management, and cross-functional delivery across engineering, UX, QA, and cybersecurity teams.',
+    proof: 'Certified SAFe® 6 Product Owner / Product Manager.',
   },
   {
     number: '03',
     name: 'Generative AI & Automation',
     description:
       'Designing conversational AI agents, multi-agent systems, and automation that cut SLAs and accelerate documentation and delivery.',
+    proof: 'AI assistants now let 3 departments self-serve product knowledge.',
   },
   {
     number: '04',
     name: 'Fintech & Credit Products',
     description:
       'Building Tier 1 enterprise Web and API credit products for India’s financial institutions under strict regulatory and governance standards.',
+    proof: 'Cut CCIR onboarding from 3 days to 1 by automating validation.',
   },
   {
     number: '05',
     name: '0-to-1 Product Building',
     description:
       'Shipping independent products end-to-end — strategy, UX, React Native, Node.js, and AI pipelines — from first idea to live app.',
+    proof: 'Built Oshi solo, from strategy and UX to backend and AI pipeline.',
   },
 ];
 
@@ -82,6 +88,17 @@ export default function ServicesSection() {
                 }}
               >
                 {service.description}
+              </p>
+              <p
+                className="flex items-start gap-3 font-medium text-[#0C0C0C] max-w-2xl"
+                style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1.15rem)' }}
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-[0.55em] h-2 w-2 shrink-0 rounded-full"
+                  style={{ background: 'linear-gradient(123deg, #B600A8, #BE4C00)' }}
+                />
+                {service.proof}
               </p>
             </div>
           </FadeIn>

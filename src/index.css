@@ -30,3 +30,9 @@ body,
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+
+/* Softly fades the photo's edges into the page background. */
+.portrait-fade {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 45%, #000 28%, rgba(0, 0, 0, 0.7) 46%, rgba(0, 0, 0, 0.35) 62%, rgba(0, 0, 0, 0.12) 77%, rgba(0, 0, 0, 0.03) 88%, transparent 97%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 45%, #000 28%, rgba(0, 0, 0, 0.7) 46%, rgba(0, 0, 0, 0.35) 62%, rgba(0, 0, 0, 0.12) 77%, rgba(0, 0, 0, 0.03) 88%, transparent 97%);
+}
