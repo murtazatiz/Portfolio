@@ -22,20 +22,18 @@ type CharProps = {
  *  positioned span fades from 0.2 → 1 opacity as scroll crosses its range. */
 function Char({ char, progress, range }: CharProps) {
   const opacity = useTransform(progress, range, [0.2, 1]);
-  // Preserve width for spaces, which would otherwise collapse in inline-block.
-  const display = char === ' ' ? ' ' : char;
 
   return (
     <span className="relative inline-block">
       <span className="opacity-0" aria-hidden="true">
-        {display}
+        {char}
       </span>
       <motion.span
         className="absolute left-0 top-0"
         style={{ opacity }}
         aria-hidden="true"
       >
-        {display}
+        {char}
       </motion.span>
     </span>
   );
@@ -56,21 +54,33 @@ export default function AnimatedText({
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const chars = text.split('');
-  const total = chars.length;
+  const words = text.split(' ');
+  const total = text.length;
+  let offset = 0;
 
   return (
     <p ref={ref} className={className} style={style} aria-label={text}>
-      {chars.map((char, i) => {
-        const start = i / total;
-        const end = (i + 1) / total;
+      {words.map((word, w) => {
+        const wordStart = offset;
+        offset += word.length + 1;
         return (
-          <Char
-            key={i}
-            char={char}
-            progress={scrollYProgress}
-            range={[start, end]}
-          />
+          <span key={w}>
+            {/* Whole words stay together so lines only break between them. */}
+            <span className="inline-block whitespace-nowrap">
+              {word.split('').map((char, c) => {
+                const i = wordStart + c;
+                return (
+                  <Char
+                    key={c}
+                    char={char}
+                    progress={scrollYProgress}
+                    range={[i / total, (i + 1) / total]}
+                  />
+                );
+              })}
+            </span>
+            {w < words.length - 1 && ' '}
+          </span>
         );
       })}
     </p>

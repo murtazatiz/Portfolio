@@ -1,16 +1,14 @@
 import ContactButton from './ContactButton';
 import FadeIn from './FadeIn';
 import Magnet from './Magnet';
+import photo from '../assets/murtaza.webp';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
-  { label: 'Expertise', href: '#expertise' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#work' },
-  { label: 'Contact', href: 'mailto:murtazatiz@gmail.com' },
+  { label: 'Contact', href: '#contact' },
 ];
-
-const PORTRAIT_URL =
-  'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png';
 
 export default function HeroSection() {
   return (
@@ -42,23 +40,30 @@ export default function HeroSection() {
         <FadeIn
           as="h1"
           delay={0.15}
-          y={40}
-          className="hero-heading w-full font-black uppercase tracking-tight leading-none whitespace-nowrap text-[11.5vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-4 sm:mt-3 md:mt-0"
+          y={24}
+          className="hero-heading w-full font-black uppercase tracking-tight leading-none whitespace-nowrap text-[9.3vw] md:text-[9.8vw] lg:text-[10.1vw] xl:text-[10.3vw] mt-4 sm:mt-3 md:mt-0"
         >
-          Hi, i&apos;m Murtaza
+          Murtaza Tinwala
         </FadeIn>
       </div>
 
       {/* Bottom bar — above the portrait so the contact button stays clickable. */}
       <div className="relative z-20 mt-auto flex items-end justify-between px-6 md:px-10 pb-7 sm:pb-8 md:pb-10">
-        <FadeIn
-          as="p"
-          delay={0.35}
-          y={20}
-          className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
-          style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
-        >
-          product manager turning ambiguous challenges into shipped, measurable products
+        <FadeIn delay={0.35} y={20} className="max-w-[180px] sm:max-w-[260px] md:max-w-[320px]">
+          <p
+            className="text-[#D7E2EA] font-medium uppercase tracking-wide leading-snug"
+            style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.5rem)' }}
+          >
+            Product Manager
+            <br />
+            Fintech &amp; Generative AI
+          </p>
+          <p
+            className="mt-2 text-[#D7E2EA]/60 font-light uppercase tracking-wider"
+            style={{ fontSize: 'clamp(0.65rem, 1vw, 1rem)' }}
+          >
+            10+ years · TransUnion CIBIL
+          </p>
         </FadeIn>
 
         <FadeIn delay={0.5} y={20}>
@@ -79,9 +84,9 @@ export default function HeroSection() {
             inactiveTransition="transform 0.6s ease-in-out"
           >
             <img
-              src={PORTRAIT_URL}
-              alt="Murtaza portrait"
-              className="select-none h-auto w-[260px] sm:w-auto sm:h-[62vh] md:h-[66vh] lg:h-[70vh] max-w-[92vw] object-contain"
+              src={photo}
+              alt="Murtaza Tinwala"
+              className="portrait-fade select-none aspect-square w-[115vw] max-w-[480px] sm:w-auto sm:h-[70vh] md:h-[74vh] lg:h-[78vh] sm:max-w-[92vw] object-cover"
               draggable={false}
             />
           </Magnet>

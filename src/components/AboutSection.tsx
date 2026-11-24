@@ -2,16 +2,15 @@ import AnimatedText from './AnimatedText';
 import ContactButton from './ContactButton';
 import FadeIn from './FadeIn';
 
-const BASE =
-  'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7';
-
-const MOON_ICON = `${BASE}/moon_icon.11395d36.png`;
-const OBJECT_3D = `${BASE}/p59_1.4659672e.png`;
-const LEGO_ICON = `${BASE}/lego_icon-1.703bb594.png`;
-const GROUP_3D = `${BASE}/Group_134-1.2e04f3ce.png`;
-
 const ABOUT_TEXT =
-  "With over ten years building enterprise web, api, and ai products in regulated fintech, i turn ambiguous business challenges into shipped, measurable outcomes. Currently leading tier 1 credit intelligence products at TransUnion CIBIL. Let's build something impactful together!";
+  "I'm a Product Manager with 10+ years shipping enterprise web and API products in regulated fintech and SaaS. At TransUnion CIBIL I lead Tier 1 credit intelligence products for India's financial institutions, and build internal AI agents that help teams move faster. I turn ambiguous business problems into shipped, measurable outcomes.";
+
+const STATS = [
+  { value: '10+', label: 'Years building products' },
+  { value: '+30%', label: 'Adoption & usage in 3 months' },
+  { value: '3 → 1', label: 'Days to onboard a user' },
+  { value: '3×', label: 'Quarterly Best Performer' },
+];
 
 export default function AboutSection() {
   return (
@@ -19,49 +18,7 @@ export default function AboutSection() {
       id="about"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20"
     >
-      {/* Decorative corner objects */}
-      <FadeIn
-        delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="pointer-events-none absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
-      >
-        <img src={MOON_ICON} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.15}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="pointer-events-none absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
-      >
-        <img src={LEGO_ICON} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="pointer-events-none absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px]"
-      >
-        <img src={OBJECT_3D} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="pointer-events-none absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]"
-      >
-        <img src={GROUP_3D} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
+      <div className="relative z-10 flex w-full flex-col items-center gap-16 sm:gap-20 md:gap-24">
         <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
           <FadeIn
             as="h2"
@@ -75,10 +32,34 @@ export default function AboutSection() {
 
           <AnimatedText
             text={ABOUT_TEXT}
-            className="text-center font-medium leading-relaxed text-[#D7E2EA] max-w-[560px]"
+            className="text-center font-medium leading-relaxed text-[#D7E2EA] max-w-[620px]"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
           />
         </div>
+
+        <dl className="grid w-full max-w-5xl grid-cols-2 md:grid-cols-4 border-t border-[#D7E2EA]/15">
+          {STATS.map((stat, i) => (
+            <FadeIn
+              key={stat.label}
+              delay={i * 0.08}
+              y={20}
+              className="flex flex-col-reverse items-center gap-2 border-b border-[#D7E2EA]/15 px-3 py-8 text-center md:py-10 [&:nth-child(odd)]:border-r md:[&:not(:last-child)]:border-r"
+            >
+              <dt
+                className="font-light uppercase tracking-widest text-[#D7E2EA]/60"
+                style={{ fontSize: 'clamp(0.65rem, 1vw, 0.85rem)' }}
+              >
+                {stat.label}
+              </dt>
+              <dd
+                className="hero-heading font-black leading-none whitespace-nowrap"
+                style={{ fontSize: 'clamp(2.25rem, 5vw, 4.5rem)' }}
+              >
+                {stat.value}
+              </dd>
+            </FadeIn>
+          ))}
+        </dl>
 
         <FadeIn delay={0} y={30}>
           <ContactButton />

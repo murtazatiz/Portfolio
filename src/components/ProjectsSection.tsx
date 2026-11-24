@@ -2,17 +2,28 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import FadeIn from './FadeIn';
 import LiveProjectButton from './LiveProjectButton';
+import cibil1 from '../assets/projects/cibil-1.webp';
+import cibil2 from '../assets/projects/cibil-2.webp';
+import cibil3 from '../assets/projects/cibil-3.webp';
+import oshi1 from '../assets/projects/oshi-1.webp';
+import oshi2 from '../assets/projects/oshi-2.webp';
+import oshi3 from '../assets/projects/oshi-3.webp';
+import dabbaz1 from '../assets/projects/dabbaz-1.webp';
+import dabbaz2 from '../assets/projects/dabbaz-2.webp';
+import dabbaz3 from '../assets/projects/dabbaz-3.webp';
 
 type Project = {
   number: string;
   name: string;
   category: string;
+  summary: string;
   /** External live URL. When set, the card's button links out. */
   href?: string;
   /** Override for the button label (e.g. "Enterprise" for internal products). */
   liveLabel?: string;
   col1: [string, string];
   col2: string;
+  alts: [string, string, string];
 };
 
 const PROJECTS: Project[] = [
@@ -20,34 +31,35 @@ const PROJECTS: Project[] = [
     number: '01',
     name: 'Comprehensive Credit Report',
     category: 'TransUnion CIBIL · Fintech',
+    summary: 'Tier 1 enterprise Web and API credit products serving financial institutions across India.',
     liveLabel: 'Enterprise',
-    col1: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
+    col1: [cibil1, cibil2],
+    col2: cibil3,
+    alts: [
+      'Adoption and usage up 30% in 3 months after CCIR UI/UX enhancements',
+      'Onboarding SLA cut from 3 days to 1 by automating manual validation',
+      'Tier 1 credit intelligence: Comprehensive Credit Reports, Credit & Farm Report, enterprise Web & API channels, multi-agent AI assistants',
     ],
-    col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
   },
   {
     number: '02',
     name: 'Oshi — AI Content Library',
     category: 'Independent · iOS & Android',
+    summary: 'Save links from any app and let GPT-4o mini sort them into your own library. Built solo, end to end.',
     href: 'https://oshiai.netlify.app',
-    col1: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    ],
-    col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
+    col1: [oshi1, oshi2],
+    col2: oshi3,
+    alts: ['Oshi homepage', 'Oshi tech stack: React Native, Node.js, Supabase, GPT-4o mini and more', 'Oshi on mobile'],
   },
   {
     number: '03',
     name: 'Dabbaz — Tiffin Marketplace',
     category: 'Independent · Web Platform',
-    href: 'https://dabbaz-fe.vercel.app',
-    col1: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-    ],
-    col2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
+    summary: "A marketplace connecting Mumbai's home cooks with customers who want fresh, home-cooked tiffins.",
+    href: 'https://dabbaz.co.in',
+    col1: [dabbaz1, dabbaz2],
+    col2: dabbaz3,
+    alts: ['Dabbaz customer homepage', 'Dabbaz cook signup: why cook with Dabbaz and how it works', 'Dabbaz on mobile: sign-in, customer home and cook signup'],
   },
 ];
 
@@ -86,11 +98,17 @@ function ProjectCard({ index, total, project, progress }: CardProps) {
                   {project.category}
                 </span>
                 <h3
-                  className="truncate font-medium uppercase text-[#D7E2EA] leading-tight"
+                  className="sm:truncate font-medium uppercase text-[#D7E2EA] leading-tight"
                   style={{ fontSize: 'clamp(1rem, 2.4vw, 2.1rem)' }}
                 >
                   {project.name}
                 </h3>
+                <p
+                  className="mt-1 max-w-xl font-light leading-snug text-[#D7E2EA]/70"
+                  style={{ fontSize: 'clamp(0.8rem, 1.2vw, 1.05rem)' }}
+                >
+                  {project.summary}
+                </p>
               </div>
             </div>
 
@@ -106,14 +124,14 @@ function ProjectCard({ index, total, project, progress }: CardProps) {
             <div className="flex w-2/5 flex-col gap-3 sm:gap-4">
               <img
                 src={project.col1[0]}
-                alt={`${project.name} preview 1`}
+                alt={project.alts[0]}
                 loading="lazy"
                 className={`w-full object-cover ${CARD_RADIUS}`}
                 style={{ height: 'clamp(130px, 16vw, 230px)' }}
               />
               <img
                 src={project.col1[1]}
-                alt={`${project.name} preview 2`}
+                alt={project.alts[1]}
                 loading="lazy"
                 className={`w-full object-cover ${CARD_RADIUS}`}
                 style={{ height: 'clamp(160px, 22vw, 340px)' }}
@@ -122,12 +140,20 @@ function ProjectCard({ index, total, project, progress }: CardProps) {
             <div className="w-3/5">
               <img
                 src={project.col2}
-                alt={`${project.name} preview 3`}
+                alt={project.alts[2]}
                 loading="lazy"
                 className={`h-full w-full object-cover ${CARD_RADIUS}`}
               />
             </div>
           </div>
+
+          {project.href && (
+            <LiveProjectButton
+              href={project.href}
+              label={project.liveLabel}
+              className="sm:hidden mt-4 w-full"
+            />
+          )}
         </motion.div>
       </div>
     </div>

@@ -1,25 +1,22 @@
-import { useEffect } from 'react';
 import HeroSection from './components/HeroSection';
-import MarqueeSection from './components/MarqueeSection';
 import AboutSection from './components/AboutSection';
+import ExperienceSection from './components/ExperienceSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectsSection from './components/ProjectsSection';
+import ContactSection from './components/ContactSection';
 
 export default function App() {
-  useEffect(() => {
-    document.title = 'Murtaza Tinwala — Product Manager';
-  }, []);
-
   return (
     <main
       className="bg-[#0C0C0C] font-kanit"
       style={{ overflowX: 'clip' }}
     >
       <HeroSection />
-      <MarqueeSection />
       <AboutSection />
+      <ExperienceSection />
       <ServicesSection />
       <ProjectsSection />
+      <ContactSection />
     </main>
   );
 }
