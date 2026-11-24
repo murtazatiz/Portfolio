@@ -128,6 +128,16 @@ export default function ExperienceSection() {
             </div>
           ))}
         </FadeIn>
+
+        <FadeIn y={20} className="mt-12 flex justify-center">
+          <a
+            href={`${import.meta.env.BASE_URL}Murtaza-Tinwala-CV.pdf`}
+            download
+            className="rounded-full border-2 border-[#D7E2EA] px-8 py-3 text-xs sm:text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition-colors duration-200 hover:bg-[#D7E2EA]/10"
+          >
+            Download full CV ↓
+          </a>
+        </FadeIn>
       </div>
     </section>
   );
